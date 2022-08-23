@@ -1,0 +1,12 @@
+---
+   - name: Create user on servers.
+     hosts: all
+     become: true
+     become_user: root
+     tasks:
+     - name : User Account Creation
+       user:
+         name: sysadmin
+         uid: 4001
+         state: present
+         password: '$6$N6iHr8MV$0L9ZLHubaTwbib1qWtV4NtBGv489RVRy2IjoId5W0gUZtKJi22uJG3E6ouKgQXPZSQ.YjtdawSFkBPe7Mw3vt1'

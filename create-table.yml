@@ -1,0 +1,12 @@
+---
+   - name: Create table on database.
+     hosts: db
+     become: true
+     become_user: root
+     tasks:
+     - name: Copy SQL Script
+       copy: src=/home/admin/source/create-table.sql dest=/tmp/create-table.sql
+
+     - name: Create table using SQL Script
+       shell: mysql -u root --password=redhat -D database123 < /tmp/create-table.sql
+...

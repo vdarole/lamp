@@ -1,0 +1,26 @@
+---
+   - name: MariaDB Server Installation.
+     hosts: db
+     become: true
+     become_user: root
+     tasks:
+     - name: Installation of MariaDB
+       yum:
+         name: mariadb, mariadb-server
+         state: present
+#	 name: mariadb-server
+#        state: present
+     - name: MariaDB Service start and enable
+       service:
+         name: mariadb
+         state: started
+         enabled: true
+     - name: mysql_root_password
+       mysql_user:
+         login_user: root
+         login_password: "{{ redhat }}"
+         user: root
+         check_implicit_admin: true
+         password: "{{ redhat }}"
+         host: localhost
+... 

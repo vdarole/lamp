@@ -1,0 +1,11 @@
+kvm01
+kvm02
+wpress01
+dock01
+suse01
+lamp01
+zap01
+pup01
+web01
+db01
+ans01
